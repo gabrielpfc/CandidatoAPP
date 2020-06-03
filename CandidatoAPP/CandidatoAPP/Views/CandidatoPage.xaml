@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CandidatoAPP.ViewModel"
+             x:Class="CandidatoAPP.Views.CandidatoPage">
+
+    <ContentPage.BindingContext>
+        <vm:CandidatoViewModel></vm:CandidatoViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="30"
+                     BackgroundColor="#b2c3f0">
+            <Entry x:Name="EntryNome" Text="{Binding Nome}" Placeholder="Nome"></Entry>
+            <Entry x:Name="EntrySobrenome" Text="{Binding Sobrenome}" Placeholder="Sobrenome"></Entry>
+            <Entry x:Name="EntryEmail" Text="{Binding Email}" Placeholder="Email"></Entry>
+            <Label Text="Resumo Profissional" FontSize="Large"></Label>
+            <Editor x:Name="EditorResumo" 
+                    Text="{Binding ResumoProfissional}"
+                    HeightRequest="200" 
+                    FontSize="Large"
+                    BackgroundColor="LightGray">
+            </Editor>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Pretensao R$ (milhares):"></Label>
+                <Entry x:Name="Pretensao"
+                       Text="{Binding PretensaoSalarial}"
+                       BackgroundColor="LightGray"
+                       HorizontalOptions="FillAndExpand"
+                       FontSize="Large"></Entry>
+            </StackLayout>
+            <StackLayout>
+                <Slider Minimum="0" 
+                        Maximum="10" 
+                        Value="{Binding PretensaoSalarial}"></Slider>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button Text="Gravar"
+                        TextColor="White"
+                        BackgroundColor="Blue"
+                        Command="{Binding GravarCommand}"></Button>
+                <Button Text="Limpar" 
+                        BackgroundColor="Yellow"
+                        Command="{Binding LimparCommand}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

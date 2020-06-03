@@ -9,8 +9,7 @@ namespace CandidatoAPP
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new CandidatoAPP.Views.CandidatoPage();
         }
 
         protected override void OnStart()
